@@ -1,0 +1,15 @@
+### github-action-checkout-01.yml
+
+name: Test Github Actions Checkout 01
+run-name: Github Actions checkout
+on:
+  push
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Actions Checkout
+      - run: ls -al
+      - uses: actions/checkout@v4
+      - run: ls -al
