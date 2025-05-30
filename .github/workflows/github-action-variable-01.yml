@@ -12,6 +12,8 @@ env:
 jobs:
   Check-Variable:
     runs-on: ubuntu-latest
+    env:
+      MESSAGE: Hello
     steps:
       - name: "It's Day"
-        run: echo "Today is $DAY_OF_WEEK!"
+        run: echo "$MESSAGE, Today is $DAY_OF_WEEK!"
