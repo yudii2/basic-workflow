@@ -3,9 +3,10 @@
 name: Test GitHub Actions-01
 run-name: Run GitHub Actions-01
 on:
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
+  workflows_dispatch
 
 jobs:
   Test-GitHub-Actions:
