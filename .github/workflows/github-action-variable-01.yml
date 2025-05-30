@@ -29,4 +29,13 @@ jobs:
     steps:
       - name: "It's Day"
         if: ${{ env.DAY_OF_WEEK == 'Thursday' }}
-        run: echo "$MESSAGE, Today is $DAY_OF_WEEK!"
+        run: echo "Hello, Today is $DAY_OF_WEEK!"
+
+  Check-Variable-04:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fruits: [Apple, Banana, Kiwi]
+    steps:
+      - name: "It's Fruits"
+        run: echo "Hello, ${{ matrix.fruits }}"
