@@ -1,0 +1,14 @@
+### github-action-variable-03.yml
+
+name: Test Github Actions Variable-03
+run-name: Github Actions var, secret
+on:
+  push
+
+jobs:
+  check-vars-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Hello Var Test"
+        run: echo "Hello ${{ VAR_TEST }}"
+      
