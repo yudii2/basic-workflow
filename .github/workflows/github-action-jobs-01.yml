@@ -1,7 +1,7 @@
 ### github-action-jobs-01.yml
 
 name: Test Github Actions Jobs 01
-run-name: Github Actions jobs
+run-name: Run Github Actions jobs
 on:
   push
 
@@ -9,14 +9,16 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.job }}
+      - id: step1
+        run: echo "word=GitHub" >> $GITHUB_OUTPUT
+      - id: step2
+        run: echo "word=Actions" >> $GITHUB_OUTPUT
+    outputs:
+      word1: ${{ steps.step1.outputs.word }}
+      word2: ${{ steps.step2.outputs.word }}
   job2:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-      - run: echo ${{ github.job }}
-  job3:
-    runs-on: ubuntu-latest
-    needs: [job1, job2]
-    steps:
-      - run: echo ${{ github.job }}
+      - run: echo "${{ needs.job1.outputs.word1 }}"
+      - run: echo "${{ needs.job1.outputs.word2 }}"
