@@ -2,9 +2,7 @@
 
 name: Test Github Actions Variable-01
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch
 
 env:
   DAY_OF_WEEK: Friday
