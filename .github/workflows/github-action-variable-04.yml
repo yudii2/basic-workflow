@@ -8,12 +8,22 @@ on:
       name:
         description: '이름'
         required: true
-        default: '유진'
+        default: 'yujin'
 
 jobs:
   input-data:
     runs-on: ubuntu-latest
+    outputs:
+      uppercase_name: ${{ steps.uppercase.outputs.result }}
     steps:
       - name: Print input data
-        run: echo "Hello, ${{ github.event.inputs.name }}"
+        id: uppercase
+        run: echo "result=$(echo '${{ github.event.inputs.name }}') | tr 'a-z' 'A-Z'" >> $GITHUB_OUTPUT
 
+
+  output-data:
+    needs: input-data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print output data
+        run: echo "Hello, ${{ needs.input-data.outputs.uppercase_name }}"
