@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: After Checkout
-      - run: ls -al
+        run: ls -al
