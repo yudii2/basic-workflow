@@ -17,3 +17,9 @@ jobs:
     steps:
       - name: "It's Day"
         run: echo "$MESSAGE, Today is $DAY_OF_WEEK!"
+
+  Check-Variable-02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "It's Day"
+        run: echo "$MESSAGE, Today is $DAY_OF_WEEK!"
