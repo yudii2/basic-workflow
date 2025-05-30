@@ -1,0 +1,17 @@
+### github-action-variable-01.yml
+
+name: Test Github Actions Variable-01
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DAY_OF_WEEK: Friday
+  
+jobs:
+  Check-Variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "It's Day"
+        run: echo "Today is $DAY_OF_WEEK!"
